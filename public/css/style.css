@@ -1,0 +1,157 @@
+.color-oris {
+    color: rgb(175, 26, 35);
+}
+
+.background-oris {
+    background-color: rgb(175, 26, 35);
+}
+
+.color-second-oris {
+    color: #9c9c9c;
+}
+
+.bg-second-oris {
+    background-color: #9c9c9c;
+}
+
+.btn-oris {
+    color: white;
+    background-color: rgb(175, 26, 35);
+    border-color: white;
+}
+
+.btn-oris:hover {
+    color: white;
+    background-color: rgb(175, 26, 35);
+    border-color: rgb(175, 26, 35);
+}
+
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("../images/portada.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 992px) {
+    .masthead {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 420px) {
+    .masthead {
+        height: 100vh;
+    }
+}
+
+.navbar {
+    background-color: rgb(175, 26, 35);
+}
+
+#navbarNav a {
+    color: white;
+}
+
+#navbarNav a:hover {
+    background-color: white;
+    color: rgb(175, 26, 35);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#porque-oris,
+#duda-consulta,
+#area-personal {
+    font-family: "trebuchet", "Trebuchet MS" !important;
+    font-size: medium;
+}
+
+#duda-consulta .btn-oris:hover {
+    color: rgb(175, 26, 35);
+    background-color: white;
+    border-color: white;
+    font-weight: bold;
+}
+
+#avatar-personal {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    top: -95px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 30px auto -50px auto;
+    padding: 5px;
+}
+
+#avatar-personal img {
+    width: 110px;
+    height: 110px;
+}
+
+.w-8 {
+    width: 8% !important;
+}
+
+#nav-tab-presentaciones .nav-link.active {
+    background-color: #f8f9fa;
+}
+
+#nav-tab-presentaciones a {
+    color: black;
+}
+
+#nav-tab-presentaciones a.active {
+    color: #007bff;
+}
+
+#rubrica-contenido,
+#rubrica-organizacion,
+#rubrica-exposicion,
+#rubrica-tiempo {
+    display: none;
+}
+
+#contenido:hover,
+#organizacion:hover,
+#exposicion:hover,
+#tiempo:hover,
+#valoracion-general:hover {
+    cursor: pointer;
+}
+
+.cabecera {
+    margin-bottom: 40px;
+    margin-top: 70px;
+}
+
+.cabecera h2 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 46px;
+    color: #cd2828;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.separador {
+    display: inline-block;
+    height: 3px;
+    width: 50px;
+    position: relative;
+    overflow: hidden;
+    background-color: #cd2828;
+}
+
+#accordion-faq button {
+    background-color: #eee !important;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
