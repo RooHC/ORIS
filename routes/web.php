@@ -20,5 +20,36 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profesor', 'ProfesorController@index')->name('profesor');
-Route::get('/alumno', 'AlumnoController@index')->name('alumno');
+
+// PERFILES
+Route::get('/alumno/{user}', 'AlumnoController@show')->name('alumno.show');
+Route::get('/profesor/{user}', 'ProfesorController@show')->name('profesor.show');
+
+// PRESENTACIONES
+Route::get('/presentacion/create', 'PresentacionController@create')->name('presentacion.create');
+Route::post('/presentacion', 'PresentacionController@store')->name('presentacion.store');
+Route::get('/presentacion', 'PresentacionController@search')->name('presentacion.search');
+Route::get('/presentacion/{presentacion}', 'PresentacionController@show')->name('presentacion.show');
+Route::get('/presentacion/{presentacion}/edit', 'PresentacionController@edit')->name('presentacion.edit');
+Route::put('/presentacion/{presentacion}', 'PresentacionController@update')->name('presentacion.update');
+Route::get('/presentacion/delete/{presentacion}', 'PresentacionController@destroy')->name('presentacion.destroy');
+
+// PREGUNTAS
+Route::get('/pregunta/create/{presentacion}', 'PreguntaController@create')->name('pregunta.create');
+Route::post('/pregunta', 'PreguntaController@store')->name('pregunta.store');
+Route::get('/pregunta/{presentacion}/edit', 'PreguntaController@edit')->name('pregunta.edit');
+Route::put('/pregunta/{pregunta}', 'PreguntaController@update')->name('pregunta.update');
+Route::get('/pregunta/delete/{pregunta}', 'PreguntaController@destroy')->name('pregunta.destroy');
+
+// RESPUESTAS
+Route::post('/respuesta', 'RespuestaController@store')->name('respuesta.store');
+
+// LIKES
+Route::post('/opiniones/{opinion}/likes', 'OpinionLikeController@store')->name('like.store');
+Route::delete('/opiniones/{opinion}/likes', 'OpinionLikeController@destroy')->name('like.destroy');
+
+// CONTACTO
+Route::get('/contacto', function () {
+    return view('contacto.index');
+});
+

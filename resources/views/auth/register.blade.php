@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
 
                             <div class="col-md-6 mt-2">
                                 <input type="radio" id="role" name="role" value="1">

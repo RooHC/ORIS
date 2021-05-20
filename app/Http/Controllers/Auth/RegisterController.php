@@ -30,16 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected function authenticated(Request $request, $user)
-    {
-        if ($user->hasRole('profesor')) {
-            return redirect('/profesor');
-        }
-        if ($user->hasRole('alumno')) {
-            return redirect('/alumno');
-        }
-    }
+    protected $redirectTo = "/";
 
     /**
      * Create a new controller instance.
@@ -60,6 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'role' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -75,15 +67,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
+            'role_id' => $data['role'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        if ($data['role'] == 1) {
-            $user->attachRole('profesor');
-        } else {
-            $user->attachRole('alumno');
-        }
         return $user;
     }
 }

@@ -23,10 +23,20 @@
             </div>
             <div class="col-sm-4 text-center">
                 <h1 class="text-white">Entrar a una reunión</h1>
-                <form>
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @elseif(session()->has('fail'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('fail') }}
+                    </div>
+                @endif
+                <form action="{{ route('presentacion.search') }}" method="GET">
+                    @csrf
                     <div class="form-group w-75 mx-auto">
-                        <input type="text" class="form-control form-control-lg text-center" id="inputIDSala"
-                            placeholder="ID de la reunión">
+                        <input id="inputIDSala" type="text" class="form-control form-control-lg text-center"
+                            name="inputIDSala" placeholder="ID de la reunión" required>
                     </div>
                     <button type="submit" class="btn btn-oris btn-lg">Entrar</button>
                 </form>

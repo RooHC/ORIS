@@ -2,9 +2,12 @@
 
 namespace App;
 
-use Laratrust\Models\LaratrustRole;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends LaratrustRole
+class Role extends Model
 {
-    //
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

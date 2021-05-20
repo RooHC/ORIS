@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class ProfesorController extends Controller
@@ -13,7 +14,7 @@ class ProfesorController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('role:profesor');
+        $this->middleware('auth');
     }
 
     /**
@@ -21,8 +22,9 @@ class ProfesorController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function show(User $user)
     {
-        return view('profesor.index');
+        $this->authorize('view', $user);
+        return view('profesor.index', compact('user'));
     }
 }

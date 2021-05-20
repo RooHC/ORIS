@@ -36,11 +36,11 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
+    <div id="app-presentacion">
+        <nav class="navbar navbar-expand-md navbar-light bg-nav shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand p-0" href="{{ url('/') }}" title="Oris - Universidad de Salamanca">
-                    <img src="{{ asset('images/oris_logHeader.png') }}" alt="Oris - Universidad de Salamanca" class="mw-100">
+                    <img src="{{ asset('images/title2.png') }}" alt="Oris - Universidad de Salamanca" class="mw-100 my-2 avatar">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,12 +48,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <div class="text-center text-white w-100">
+                    <h2 class="mb-0"><strong>{{ $presentacion->title }}</strong></h2>
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -71,7 +70,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="http://localhost/ORIS/public/images/avatar2.png" width="40" height="40" class="rounded-circle">
+                                <img src="{{ asset('images/avatar2black.png') }}" width="40" height="40" class="rounded-circle">
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -93,7 +92,6 @@
                 </div>
             </div>
         </nav>
-
         <main>
             @yield('content')
         </main>

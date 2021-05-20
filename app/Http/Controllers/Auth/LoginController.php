@@ -30,11 +30,11 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function authenticated(Request $request, $user)
     {
-        if ($user->hasRole('profesor')) {
-            return redirect('/profesor');
+        if ($user->role->name == 'profesor') {
+            return redirect('/profesor/' . $user->id);
         }
-        if ($user->hasRole('alumno')) {
-            return redirect('/alumno');
+        if ($user->role->name == 'alumno') {
+            return redirect('/alumno/' . $user->id);
         }
     }
 

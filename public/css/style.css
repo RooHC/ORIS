@@ -92,6 +92,28 @@
     height: 110px;
 }
 
+.bg-nav{
+    background-color: rgb(54 54 50);
+}
+
+.bg-presentacion{
+    background-color: #44433f;
+}
+
+#app-presentacion .avatar{
+    width: 85%;
+}
+
+#app-presentacion .dropdown-toggle::after {
+    color: #cecece;
+}
+
+#exposicion .embed-responsive.embed-responsive-21by9.border.border-white {
+    width: 80%;
+    left: 10%;
+    height: 470px;
+}
+
 .w-8 {
     width: 8% !important;
 }
@@ -119,7 +141,7 @@
 #organizacion:hover,
 #exposicion:hover,
 #tiempo:hover,
-#valoracion-general:hover {
+#valoracion:hover {
     cursor: pointer;
 }
 
@@ -154,4 +176,140 @@
     width: 100%;
     height: 350px;
     border: 0;
+}
+
+.px-cuestionario {
+    padding-right: 10rem !important;
+    padding-left: 10rem !important;
+}
+
+@media (max-width: 992px) {
+    .px-cuestionario {
+        padding-right: 8rem !important;
+        padding-left: 8rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .px-cuestionario {
+        padding-right: 6rem !important;
+        padding-left: 6rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .px-cuestionario {
+        padding-right: 3rem !important;
+        padding-left: 3rem !important;
+    }
+}
+
+.font-size-cuestionario {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+}
+
+.descripcion-cuestionario {
+    color: #727272;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem !important;
+}
+
+fieldset.cuestionario {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    color: #727272;
+}
+
+legend.cuestionario {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: inherit;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.pregunta-cuestionario {
+    font-size: 1rem;
+}
+
+.rating {
+    border: none;
+    margin-right: 76%;
+}
+
+@media (max-width: 1209px) {
+    .rating {
+        margin-right: 70%;
+    }
+}
+
+@media (max-width: 991px) {
+    .rating {
+        margin-right: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .rating {
+        margin-right: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    .rating {
+        margin-right: 55%;
+    }
+}
+
+@media (max-width: 460px) {
+    .rating {
+        margin-right: 35%;
+    }
+}
+
+.rating > [id^="star"] {
+    display: none;
+}
+
+.rating > label:before {
+    margin: 5px;
+    font-size: 1.5em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+}
+
+.rating > [id^="star"]:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #ffd700;
+}
+
+.rating > [id^="star"]:checked + label:hover,
+.rating > [id^="star"]:checked ~ label:hover,
+.rating > label:hover ~ [id^="star"]:checked ~ label,
+.rating > [id^="star"]:checked ~ label:hover ~ label {
+    color: #ffed85;
+}
+
+#fa-question-circle:hover {
+    cursor: pointer;
 }
