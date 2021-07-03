@@ -92,8 +92,12 @@
                                             $number_answers = $number_answers + $pregunta->respuestas->count();
                                         ?>
                                     @endforeach
-                                    <?php 
-                                        $correctas = number_format((($correct_answers/$number_answers)*100),0); 
+                                    <?php
+                                        if($number_answers == 0){
+                                            $correctas = 0;
+                                        }else{
+                                            $correctas = number_format((($correct_answers/$number_answers)*100),0); 
+                                        }
                                     ?>
                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$correctas}}%</div>
                                 </div>
@@ -120,12 +124,13 @@
                             </a>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
+                                    <?php $valoracion_total = 0; ?>
                                     @foreach ($presentacion->opiniones as $opinion)
                                         <?php 
                                             $valoracion_total = number_format((($opinion::where('presentacion_id', $presentacion->id)->avg('valoracion'))),0);
                                         ?>
                                     @endforeach
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$valoracion_total}} pts.</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$valoracion_total}}/5</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -232,9 +237,11 @@
                                 @endforeach
                                 <?php 
                                     $numRespuestas = $pregunta->respuestas->count();
-                                    $numOptionA = number_format((($numOptionA/$numRespuestas)*100),0);
-                                    $numOptionB = number_format((($numOptionB/$numRespuestas)*100),0);
-                                    $numOptionC = number_format((($numOptionC/$numRespuestas)*100),0);
+                                    if($numRespuestas != 0){
+                                       $numOptionA = number_format((($numOptionA/$numRespuestas)*100),0);
+                                        $numOptionB = number_format((($numOptionB/$numRespuestas)*100),0);
+                                        $numOptionC = number_format((($numOptionC/$numRespuestas)*100),0); 
+                                    }
                                 ?>
                                 <h4 class="small font-weight-bold">Opción A <span class="float-right">{{$numOptionA}}%</span></h4>
                                 <div class="progress mb-3">
@@ -265,6 +272,7 @@
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Criterios</h6>
                 </div>
+                <?php $porcentajes = array(0,0,0,0,0); ?>
                 @foreach ($presentacion->opiniones as $opinion)
                     <?php
                     $contenido = number_format((($opinion::where('presentacion_id', $presentacion->id)->avg('contenido'))),0);
@@ -278,7 +286,7 @@
                 <div class="card-body">
                     @for ($i = 0; $i < count($rubricas); $i++) 
                         <div id="{{$names[$i]}}">
-                            <h4 class="small font-weight-bold">{{$rubricas[$i]}} <span class="float-right">{{$porcentajes[$i]}} pts.</span></h4>
+                            <h4 class="small font-weight-bold">{{$rubricas[$i]}} <span class="float-right">{{$porcentajes[$i]}}/5</span></h4>
                             <div class="progress mb-3">
                                 <div class="progress-bar {{$colors[$i]}}" role="progressbar" style="width: {{$porcentajes[$i]*2*10}}%"></div>
                             </div>
