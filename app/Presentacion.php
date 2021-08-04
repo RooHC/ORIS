@@ -23,10 +23,16 @@ class Presentacion extends Model
         return $this->hasMany(Opinion::class);
     }
 
-    public static function boot() {
+    public function asignatura()
+    {
+        return $this->belongsTo(Asignatura::class);
+    }
+
+    public static function boot()
+    {
         parent::boot();
 
-        static::deleting(function($presentacion) {
+        static::deleting(function ($presentacion) {
             $presentacion->preguntas()->delete();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePresentacionsTable extends Migration
+class CreateAsignaturasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreatePresentacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('presentacions', function (Blueprint $table) {
+        Schema::create('asignaturas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('meeting_id');
-            $table->string('title');
-            $table->unsignedBigInteger('subject_id');
-            $table->string('file');
-            $table->boolean('completed');
-            $table->integer('participants');
+            $table->string('subject_id');
+            $table->string('subject_name');
             $table->timestamps();
 
             $table->index('user_id');
-            $table->index('subject_id');
         });
     }
 
@@ -36,6 +31,6 @@ class CreatePresentacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('presentacions');
+        Schema::dropIfExists('asignaturas');
     }
 }

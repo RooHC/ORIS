@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Opinion extends Model
 {
+    protected $fillable = [
+        'visible'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

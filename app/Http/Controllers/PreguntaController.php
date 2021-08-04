@@ -62,7 +62,7 @@ class PreguntaController extends Controller
         if (!$presentacion->completed) {
             return view('pregunta.edit', compact('presentacion'));
         } else {
-            return view('presentacion.show', compact('presentacion'));
+            return view('presentacion.show-estadisticas', compact('presentacion'));
         }
     }
 

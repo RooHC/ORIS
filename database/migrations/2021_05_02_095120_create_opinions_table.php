@@ -23,6 +23,7 @@ class CreateOpinionsTable extends Migration
             $table->tinyInteger('tiempo');
             $table->tinyInteger('valoracion');
             $table->text('consejo')->nullable();
+            $table->boolean('visible')->default(true);
             $table->timestamps();
 
             $table->index('user_id');

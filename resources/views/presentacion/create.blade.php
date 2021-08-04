@@ -38,8 +38,14 @@
                 <div class="form-group row">
                     <label for="subject" class="col-md-4 col-form-label">Asignatura</label>
 
-                    <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror"
-                        name="subject" value="{{ old('subject') }}" required autocomplete="subject" autofocus>
+                    <select class="form-control" name="subject" required>
+                        <option value="">Seleccionar una asignatura</option>
+                        @foreach (Auth::user()->suscrito as $asignatura)
+                        <option value="{{ $asignatura->id }}">
+                            {{ $asignatura->subject_name }}
+                        </option>
+                        @endforeach
+                    </select>
 
                     @error('subject')
                     <span class="invalid-feedback" role="alert">

@@ -30,7 +30,31 @@ class PresentacionPolicy
      */
     public function view(User $user, Presentacion $presentacion)
     {
-        return $user->id != $presentacion->user_id;
+        return ($user->id != $presentacion->user_id && $user->role_id != 1);
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Presentacion  $presentacion
+     * @return mixed
+     */
+    public function viewDetail(User $user, Presentacion $presentacion)
+    {
+        return $user->role_id == 1;
+    }
+
+    /**
+     * Determine whether the user can answer to a comment the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Presentacion  $presentacion
+     * @return mixed
+     */
+    public function answerComment(User $user, Presentacion $presentacion)
+    {
+        return ($user->id == $presentacion->user_id && $user->role_id != 1);
     }
 
     /**
@@ -53,7 +77,7 @@ class PresentacionPolicy
      */
     public function update(User $user, Presentacion $presentacion)
     {
-        return $user->id == $presentacion->user_id;
+        return $user->id == $presentacion->user_id || $user->role_id == 1;
     }
 
     /**

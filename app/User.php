@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->hasMany(Presentacion::class)->orderBy('created_at', 'DESC');
     }
 
+    public function asignaturas()
+    {
+        return $this->hasMany(Asignatura::class);
+    }
+
     public function preguntas()
     {
         return $this->hasMany(Pregunta::class);
@@ -60,5 +65,10 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function suscrito()
+    {
+        return $this->belongsToMany(Asignatura::class);
     }
 }

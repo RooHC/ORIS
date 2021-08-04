@@ -40,7 +40,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand p-0" href="{{ url('/') }}" title="Oris - Universidad de Salamanca">
-                    <img src="{{ asset('images/oris_logHeader.png') }}" alt="Oris - Universidad de Salamanca" class="mw-100">
+                    <img src="{{ asset('images/oris_logHeader.png') }}" alt="Oris - Universidad de Salamanca"
+                        class="mw-100">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -71,11 +72,13 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="http://localhost/ORIS/public/images/avatar2.png" width="40" height="40" class="rounded-circle">
+                                <img src="http://localhost/ORIS/public/images/avatar2.png" width="40" height="40"
+                                    class="rounded-circle">
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href={{ url('/'.Auth::user()->role->name.'/'.Auth::user()->id) }}>
+                                <a class="dropdown-item"
+                                    href={{ url('/'.Auth::user()->role->name.'/'.Auth::user()->id) }}>
                                     {{Auth::user()->name}}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

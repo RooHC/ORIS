@@ -84,7 +84,8 @@
                         <label class="form-check-label" for="solution">A</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="solution" name="solution" value="option_B" required>
+                        <input class="form-check-input" type="radio" id="solution" name="solution" value="option_B"
+                            required>
                         <label class="form-check-label" for="solution">B</label>
                     </div>
                     <div class="form-check form-check-inline">

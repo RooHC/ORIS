@@ -55,4 +55,17 @@ class RespuestaController extends Controller
 
         return redirect('/presentacion/' . $data['presentacion_id'] . '#evaluacion');
     }
+
+    public function update(Opinion $opinion)
+    {
+        if ($opinion->visible) {
+            $data['visible'] = false;
+        } else {
+            $data['visible'] = true;
+        }
+
+        if ($opinion->update($data)) {
+            return redirect('/presentacion/' . $opinion->presentacion_id . '#sugerencias');
+        }
+    }
 }

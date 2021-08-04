@@ -30,11 +30,11 @@ class PreguntaPolicy
      */
     public function view(User $user, Pregunta $pregunta)
     {
-        if(count($pregunta->respuestas)==0){
+        if (count($pregunta->respuestas) == 0) {
             return true;
         }
-        foreach($pregunta->respuestas as $respuesta){
-            if($user->id == $respuesta->user_id){
+        foreach ($pregunta->respuestas as $respuesta) {
+            if ($user->id == $respuesta->user_id) {
                 return false;
             }
         }

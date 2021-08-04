@@ -115,7 +115,8 @@
 
                 <div class="row">
                     <div class="w-100">
-                        <a class="btn btn-oris float-left" href="{{ url('/pregunta/delete/' . $pregunta->id) }}" role="button">Eliminar pregunta</a>
+                        <a class="btn btn-oris float-left" href="{{ url('/pregunta/delete/' . $pregunta->id) }}"
+                            role="button">Eliminar pregunta</a>
                         <button class="btn btn-oris float-right" type="submit">Actualizar</button>
                     </div>
                 </div>
@@ -127,7 +128,8 @@
     <div class="row">
         <div class="col-8 offset-2 text-center">
             <br>
-            <a class="btn btn-oris" href="{{ url('/pregunta/create/' . $presentacion->id) }}" role="button">Añadir pregunta</a>
+            <a class="btn btn-oris" href="{{ url('/pregunta/create/' . $presentacion->id) }}" role="button">Añadir
+                pregunta</a>
             <hr>
             <button class="btn btn-oris" type="button" data-toggle="modal" data-target="#finalizar">Finalizar</button>
             <div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-hidden="true">

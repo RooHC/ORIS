@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Asignatura;
 use App\Opinion;
+use App\Pregunta;
 use App\Presentacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use \Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PresentacionController extends Controller
 {
@@ -22,7 +25,7 @@ class PresentacionController extends Controller
 
     public function create()
     {
-        return view('presentacion.create');
+        return view('presentacion.create', compact('subject_id', 'asignaturas'));
     }
 
     public function store()
@@ -33,14 +36,15 @@ class PresentacionController extends Controller
             'file' => 'required|mimes:pdf|max:10000',
         ]);
 
-        $meetingId = Str::upper(Str::random(6));
+        $meetingId = Str::upper(Str::random(9));
         $isCompleted = 0;
         $participants = 0;
         $filePath = request('file')->store('uploads', 'public');
+        $asignatura = Asignatura::query()->where('id', $data['subject'])->first();
 
         $presentacion = auth()->user()->presentaciones()->create([
             'title' => $data['title'],
-            'subject' => $data['subject'],
+            'subject_id' => $asignatura['id'],
             'meeting_id' => $meetingId,
             'completed' => $isCompleted,
             'file' => $filePath,
@@ -57,7 +61,12 @@ class PresentacionController extends Controller
     public function show(Presentacion $presentacion)
     {
         $opiniones = Opinion::where('presentacion_id', $presentacion->id)->paginate(4);
-        return view('presentacion.show', compact('presentacion'), ['opiniones' => $opiniones]);
+        $asignatura = Asignatura::where('id', $presentacion->subject_id)->first();
+        if ((Auth::user()->id != $presentacion->user_id) && (Auth::user()->id != $asignatura->user_id)) {
+            return view('presentacion.show-cuestionario', compact('presentacion', 'asignatura'), ['opiniones' => $opiniones]);
+        } else if ((Auth::user()->id == $presentacion->user_id) || (Auth::user()->id == $asignatura->user_id)) {
+            return view('presentacion.show-estadisticas', compact('presentacion', 'asignatura'), ['opiniones' => $opiniones]);
+        }
     }
 
     public function edit(Presentacion $presentacion)
@@ -66,7 +75,7 @@ class PresentacionController extends Controller
         if (!$presentacion->completed) {
             return view('presentacion.edit', compact('presentacion'));
         } else {
-            return view('presentacion.show', compact('presentacion'));
+            return view('presentacion.show-estadisticas', compact('presentacion'));
         }
     }
 
@@ -75,7 +84,6 @@ class PresentacionController extends Controller
         $this->authorize('update', $presentacion);
         $data = request()->validate([
             'title' => '',
-            'subject' => '',
             'file' => 'mimes:pdf|max:10000',
         ]);
 
@@ -108,9 +116,20 @@ class PresentacionController extends Controller
         $presentacion = Presentacion::query()->where('meeting_id', 'LIKE', "%{$data}%")->first();
         if ($presentacion) {
             $opiniones = Opinion::where('presentacion_id', $presentacion->id)->paginate(4);
-            return view('presentacion.show', compact('presentacion'), ['opiniones' => $opiniones]);
+            $asignatura = Asignatura::where('id', $presentacion->subject_id)->first();
+            if ((Auth::user()->id != $presentacion->user_id) && (Auth::user()->id != $asignatura->user_id)) {
+                return view('presentacion.show-cuestionario', compact('presentacion', 'asignatura'), ['opiniones' => $opiniones]);
+            } else if ((Auth::user()->id == $presentacion->user_id) || (Auth::user()->id == $asignatura->user_id)) {
+                return view('presentacion.show-estadisticas', compact('presentacion', 'asignatura'), ['opiniones' => $opiniones]);
+            }
         } else {
             return redirect()->back()->with('fail', 'No se pudo encontrar la reunión.');
         }
+    }
+
+    public function detail(Pregunta $pregunta)
+    {
+        $this->authorize('viewDetail', $pregunta->presentacion);
+        return view('presentacion.detail', compact('pregunta'));
     }
 }

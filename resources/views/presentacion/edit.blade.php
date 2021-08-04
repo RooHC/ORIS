@@ -36,20 +36,6 @@
                     @enderror
                 </div>
 
-                <div class="form-group row">
-                    <label for="subject" class="col-md-4 col-form-label">Asignatura</label>
-
-                    <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror"
-                        name="subject" value="{{ old('subject') ?? $presentacion->subject }}" autocomplete="subject"
-                        autofocus>
-
-                    @error('subject')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-
                 <div class="form-group row pt-3">
                     <label for="file" class="col-md-4 col-form-label">Archivo *</label>
                     <div class="w-100 ml-5 mb-2">

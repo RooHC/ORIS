@@ -92,15 +92,15 @@
     height: 110px;
 }
 
-.bg-nav{
+.bg-nav {
     background-color: rgb(54 54 50);
 }
 
-.bg-presentacion{
+.bg-presentacion {
     background-color: #44433f;
 }
 
-#app-presentacion .avatar{
+#app-presentacion .avatar {
     width: 85%;
 }
 
@@ -108,7 +108,7 @@
     color: #cecece;
 }
 
-#exposicion .embed-responsive.embed-responsive-21by9.border.border-white {
+#pantalla .embed-responsive.embed-responsive-21by9.border.border-white {
     width: 80%;
     left: 10%;
     height: 470px;
@@ -312,4 +312,45 @@ legend.cuestionario {
 
 #fa-question-circle:hover {
     cursor: pointer;
+}
+
+#misAsignaturas a {
+    color: #212529;
+}
+
+#respuestasAlumnos * {
+    list-style: none;
+}
+#respuestasAlumnos li {
+    line-height: 180%;
+}
+#respuestasAlumnos li a {
+    color: #222;
+    text-decoration: none;
+}
+#respuestasAlumnos li a:before {
+    content: "\025b8";
+    color: #ddd;
+    margin-right: 4px;
+}
+#respuestasAlumnos input[name="list"] {
+    position: absolute;
+    left: -1000em;
+}
+#respuestasAlumnos label:hover {
+    text-decoration: underline;
+}
+#respuestasAlumnos label:before {
+    content: "\025b8";
+    margin-right: 4px;
+}
+#respuestasAlumnos input:checked ~ label:before {
+    content: "\025be";
+}
+#respuestasAlumnos .interior {
+    display: none;
+}
+#respuestasAlumnos input:checked ~ ul {
+    display: block;
+    margin-bottom: 0.5rem !important;
 }
