@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asignatura;
+use App\User;
 use Illuminate\Http\Request;
 
 class SuscripcionController extends Controller
@@ -32,5 +33,12 @@ class SuscripcionController extends Controller
         } else {
             return redirect()->back()->with('fail', 'No se pudo completar la suscripción.');
         }
+    }
+
+    public function destroy(User $suscriptor, Asignatura $asignatura)
+    {
+        $asignatura = Asignatura::findOrFail($asignatura->id);
+        $asignatura->suscriptores()->detach($suscriptor->id);
+        return redirect()->back();
     }
 }

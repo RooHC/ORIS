@@ -16,6 +16,11 @@
 </nav>
 
 <div class="container mb-5">
+    @if(session('success'))
+    <div class="alert alert-success m-5">
+        {{ session('success') }}
+    </div>
+    @endif
     <!-- FAQ -->
     <div class="cabecera">
         <h2>FAQ</h2>
@@ -100,30 +105,26 @@
         </div>
         <div class="card border-danger">
             <div class="card-body m-4">
-                <form>
+                <form method="POST" action="{{ url('/contact') }}">
+                    @csrf
                     <div class="md-form mb-2">
-                        <label for="contact-name" class="font-weight-bold">Nombre</label>
-                        <input type="text" id="contact-name" class="form-control">
+                        <label for="name" class="font-weight-bold">Nombre</label>
+                        <input name="name" type="text" class="form-control" id="name" required>
                     </div>
                     <div class="md-form mb-2">
-                        <label for="contact-email" class="font-weight-bold">Email</label>
-                        <input type="text" id="contact-email" class="form-control">
+                        <label for="email" class="font-weight-bold">Email</label>
+                        <input name="email" type="email" class="form-control" id="email" required>
                     </div>
-                    <div class="md-form mb-2">
-                        <label for="contact-subject" class="font-weight-bold">Asunto</label>
-                        <input type="text" id="contact-Subject" class="form-control">
+                    <div class="md-form primary-textarea mb-4">
+                        <label for="comment" class="font-weight-bold">Mensaje</label>
+                        <textarea name="comment" id="comment" class="md-textarea form-control mb-0" rows="5"
+                            style="padding-bottom: 1.2rem;" required></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-oris btn-lg">Enviar</button>
                     </div>
                 </form>
-
-                <div class="md-form primary-textarea mb-4">
-                    <label for="contact-message" class="font-weight-bold">Mensaje</label>
-                    <textarea id="contact-message" class="md-textarea form-control mb-0" rows="5"
-                        style="padding-bottom: 1.2rem;"></textarea>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-oris btn-lg">Enviar</button>
-                </div>
             </div>
         </div>
     </section>

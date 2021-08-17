@@ -85,6 +85,9 @@
                 @endif
             </div>
         </div>
+        <div class="text-center w-100 mt-4">
+            <a class="btn btn-primary m-3" href={{ url('/presentacion/' . $pregunta->presentacion_id . '#respuestas') }} role="button">Volver</a>
+        </div>
     </div>
 </div>
 {{-- FIN MENSAJES DE SUGERENCIA --}}

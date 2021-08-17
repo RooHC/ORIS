@@ -60,12 +60,13 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="btn btn-oris" href="{{ route('login') }}" role="button">{{ __('Login') }}</a>
+                            <a class="btn btn-oris" href="{{url('login/google')}}" role="button">{{ __('Login') }}</a>
+                            {{-- <a class="btn btn-primary" href="{{ route('login') }}" role="button">{{ __('Login') }}</a> --}}
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="btn btn-oris" href="{{ route('register') }}"
-                                role="button">{{ __('Register') }}</a>
+                            {{-- <a class="btn btn-primary" href="{{ route('register') }}"
+                                role="button">{{ __('Register') }}</a> --}}
                         </li>
                         @endif
                         @else

@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '902917761432-r47rk091b90tqetkrc69mdfrkmg6q8ib.apps.googleusercontent.com',
+        'client_secret' => 'yVXRIz7H5W-ZehxwKiyvSesw',
+        'redirect' => 'http://localhost/ORIS/public/login/google/callback',
+    ],
+
 ];

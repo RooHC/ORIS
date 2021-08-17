@@ -18,8 +18,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/alumno/{name}/{email}/{id}', 'Auth\LoginController@createAlumno');
+Route::get('login/profesor/{name}/{email}/{id}', 'Auth\LoginController@createProfesor');
+Route::get('login/fail/{name}/{email}', 'Auth\LoginController@createFail');
+Route::get('/send-mail-registro/{name}/{email}/{id}', 'MailController@sendMailRegistro')->name('send.mailRegistro');
+Route::get('/send-mail-confirmacion/{name}/{email}', 'MailController@sendMailConfirmacion')->name('send.mailConfirmacion');
+Route::get('/send-mail-fail/{name}/{email}', 'MailController@sendMailFail')->name('send.mailFail');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 // PERFILES
 Route::get('/alumno/{user}', 'AlumnoController@show')->name('alumno.show');
@@ -57,8 +65,10 @@ Route::get('/asignatura/{asignatura}', 'AsignaturaController@show')->name('asign
 
 //SUSCRIPCIONES
 Route::post('/suscripcion', 'SuscripcionController@store')->name('suscripcion.store');
+Route::delete('/suscripcion/delete/{suscriptor}/{asignatura}', 'SuscripcionController@destroy')->name('suscripcion.destroy');
 
 // CONTACTO
 Route::get('/contacto', function () {
     return view('contacto.index');
 });
+Route::post('/contact', 'MailController@contact')->name('contact');
