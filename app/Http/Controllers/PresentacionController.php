@@ -23,11 +23,21 @@ class PresentacionController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Muestra la vista para añadir una presentación nueva.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function create()
     {
         return view('presentacion.create', compact('subject_id', 'asignaturas'));
     }
 
+    /**
+     * Guarda la nueva presentación en base de datos.
+     *
+     * @return Presentacion
+     */
     public function store()
     {
         $data = request()->validate([
@@ -58,6 +68,11 @@ class PresentacionController extends Controller
         }
     }
 
+    /**
+     * Muestra la presentación con los datos de las estadísticas
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function show(Presentacion $presentacion)
     {
         $opiniones = Opinion::where('presentacion_id', $presentacion->id)->paginate(4);
@@ -69,6 +84,11 @@ class PresentacionController extends Controller
         }
     }
 
+    /**
+     * Muestra la vista para editar una presentación.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function edit(Presentacion $presentacion)
     {
         $this->authorize('update', $presentacion);
@@ -79,6 +99,11 @@ class PresentacionController extends Controller
         }
     }
 
+    /**
+     * Permite actualizar los datos de la presentación.
+     *
+     * @return Presentacion
+     */
     public function update(Presentacion $presentacion)
     {
         $this->authorize('update', $presentacion);
@@ -98,6 +123,11 @@ class PresentacionController extends Controller
         }
     }
 
+    /**
+     * Elimina una presentación.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function destroy(Presentacion $presentacion)
     {
         $this->authorize('delete', $presentacion);
@@ -107,6 +137,11 @@ class PresentacionController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Permite buscar una presentación segun unos criterios.
+     *
+     * @return Presentacion[]
+     */
     public function search()
     {
         $data = request()->validate([
@@ -127,6 +162,11 @@ class PresentacionController extends Controller
         }
     }
 
+    /**
+     * Muestra los detalles de respuestas de una presentacion.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function detail(Pregunta $pregunta)
     {
         $this->authorize('viewDetail', $pregunta->presentacion);

@@ -17,6 +17,11 @@ class OpinionLikeController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Almacena si un usuario le da like a un comentario.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function store(Opinion $opinion)
     {
         $opinion->likes()->create([
@@ -25,6 +30,11 @@ class OpinionLikeController extends Controller
         return redirect('/presentacion/' . $opinion->presentacion_id . '#sugerencias');
     }
 
+    /**
+     * Elimina de la base de datos el like cuando un usuario lo solicita.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function destroy(Opinion $opinion)
     {
         request()->user()->likes()->where('opinion_id', $opinion->id)->delete();

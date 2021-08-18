@@ -7,10 +7,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav nav-fill w-50 mx-auto">
-            <a class="nav-link" href="#">Studium</a>
-            <a class="nav-link" href="#">MiUsal</a>
-            <a class="nav-link" href="#">Alumni</a>
-            <a class="nav-link" href="#">Soporte</a>
+            <a class="nav-link" href="https://studium.usal.es/">Studium</a>
+            <a class="nav-link" href="https://studium.usal.es/my/">MiUsal</a>
+            <a class="nav-link" href="https://alumni.usal.es/">Alumni</a>
+            <a class="nav-link" href="{{ url('/contacto') }}">Soporte</a>
         </div>
     </div>
 </nav>

@@ -7,10 +7,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav nav-fill w-50 mx-auto">
-            <a class="nav-link" href="#">Studium</a>
-            <a class="nav-link" href="#">MiUsal</a>
-            <a class="nav-link" href="#">Alumni</a>
-            <a class="nav-link" href="#">Soporte</a>
+            <a class="nav-link" href="https://studium.usal.es/">Studium</a>
+            <a class="nav-link" href="https://studium.usal.es/my/">MiUsal</a>
+            <a class="nav-link" href="https://alumni.usal.es/">Alumni</a>
+            <a class="nav-link" href="{{ url('/contacto') }}">Soporte</a>
         </div>
     </div>
 </nav>
@@ -30,69 +30,45 @@
         <div class="card">
             <button class="card-header btn btn-link collapsed text-left font-weight-bold text-dark" id="headingOne"
                 data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                FAQ 1
+                ¿Cómo convierto mi presentación a formato PDF?
             </button>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion-faq">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    3
-                    wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente
-                    ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                    denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <strong>Windows:</strong><br>
+                    1. Seleccione Archivo > Exportar.<br>
+                    2. Haga clic en Crear documento PDF/XPS y, a continuación, haga clic en Crear PDF o XPS.<br>
+                    3. En el cuadro de diálogo Publicar como PDF o XPS, elija una ubicación para guardar el archivo. Si
+                    desea que el archivo tenga otro nombre, escríbalo en el cuadro Nombre de archivo.<br><br>
+
+                    <strong>macOS:</strong><br>
+                    1. Seleccione Archivo > Guardar como.<br>
+                    2. Elija la ubicación donde desea guardar el PDF y, a continuación, en el menú Formato de archivo,
+                    elija PDF.
                 </div>
             </div>
         </div>
         <div class="card">
             <button class="card-header btn btn-link collapsed text-left font-weight-bold text-dark" id="headingTwo"
                 data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                FAQ 2
+                ¿Por qué no puedo editar/eliminar mi presentación?
             </button>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion-faq">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    3
-                    wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente
-                    ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                    denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    Una vez uno de tus compañeros haya respondido al cuestionario asociado a tu presentación, no será
+                    posible modificar o eliminar dicha presentación.
                 </div>
             </div>
         </div>
         <div class="card">
             <button class="card-header btn btn-link collapsed text-left font-weight-bold text-dark" id="headingThree"
                 data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                FAQ 3
+                ¿Cómo me suscribo a una asignatura?
             </button>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion-faq">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    3
-                    wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente
-                    ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                    denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    1. Accede a tu perfil.<br>
+                    2. Pulsa el botón suscribirse a una asignatura. <br>
+                    3. Introduce el código de la asignatura que te proporcione el profesor.
                 </div>
             </div>
         </div>

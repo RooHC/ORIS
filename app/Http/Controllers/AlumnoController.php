@@ -20,7 +20,7 @@ class AlumnoController extends Controller
     }
 
     /**
-     * Show the student dashboard.
+     * Muestra el perfil del usuario.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

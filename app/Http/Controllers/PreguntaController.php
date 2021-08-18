@@ -18,12 +18,22 @@ class PreguntaController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Devuelve la vista para crear una nueva pregunta.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function create(Presentacion $presentacion)
     {
         $this->authorize('update', $presentacion);
         return view('pregunta.create', compact('presentacion'));
     }
 
+    /**
+     * Almacena la nueva pregunta.
+     *
+     * @return Pregunta
+     */
     public function store()
     {
         $data = request()->validate([
@@ -56,6 +66,11 @@ class PreguntaController extends Controller
         }
     }
 
+    /**
+     * Devuelve la vista para editar una pregunta
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function edit(Presentacion $presentacion)
     {
         $this->authorize('update', $presentacion);
@@ -66,6 +81,11 @@ class PreguntaController extends Controller
         }
     }
 
+    /**
+     * Actualizar datos de una pregunta.
+     *
+     * @return Pregunta
+     */
     public function update(Pregunta $pregunta)
     {
         $this->authorize('update', $pregunta);
@@ -84,6 +104,11 @@ class PreguntaController extends Controller
         }
     }
 
+    /**
+     * Eliminar una pregunta
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function destroy(Pregunta $pregunta)
     {
         $this->authorize('delete', $pregunta);

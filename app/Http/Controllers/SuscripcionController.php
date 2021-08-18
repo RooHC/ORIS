@@ -18,6 +18,11 @@ class SuscripcionController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Guarda los datos de un alumno que se ha suscrito a una asignatura.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function store()
     {
         $data = request()->validate([
@@ -35,6 +40,11 @@ class SuscripcionController extends Controller
         }
     }
 
+    /**
+     * Elimina la suscripcion de un alumno de una asignatura.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function destroy(User $suscriptor, Asignatura $asignatura)
     {
         $asignatura = Asignatura::findOrFail($asignatura->id);

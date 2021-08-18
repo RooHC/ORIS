@@ -30,6 +30,22 @@ class LoginController extends Controller
     public $user;
 
     /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role->name == 'profesor') {
+            return redirect('/profesor/' . $user->id);
+        }
+        if ($user->role->name == 'alumno') {
+            return redirect('/alumno/' . $user->id);
+        }
+    }
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -75,7 +91,7 @@ class LoginController extends Controller
             if (Auth::user()->role->name == 'alumno') {
                 return redirect('/alumno/' . Auth::user()->id);
             }
-            // Nuevo usuario
+        // Nuevo usuario
         } else {
             return view('auth.rol', compact('user'));
         }
@@ -84,6 +100,7 @@ class LoginController extends Controller
     /**
      * Create a new user instance.
      *
+     * @return User
      */
     public function createAlumno($name, $email, $id)
     {
@@ -98,8 +115,9 @@ class LoginController extends Controller
     }
 
     /**
-     * Create a new user instance.
+     * Create a new user instance and send a mail.
      *
+     * @return User
      */
     public function createProfesor($name, $email, $id)
     {
@@ -113,6 +131,9 @@ class LoginController extends Controller
         return redirect(url('/send-mail-confirmacion/' . $name . '/' . $email));
     }
 
+    /**
+     * Doesn't create a new user instance and send a fail mail.
+     */
     public function createFail($name, $email)
     {
         return redirect(url('/send-mail-fail/' . $name . '/' . $email));

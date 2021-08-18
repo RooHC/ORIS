@@ -21,12 +21,22 @@ class AsignaturaController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Devuelve la vista para crear una asignatura nueva
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function create()
     {
         $this->authorize('create', asignatura::class);
         return view('asignatura.create');
     }
 
+    /**
+     * Almacena la asignatura con los datos introducidos por el profesor
+     * 
+     * @return Asignatura
+     */
     public function store()
     {
         $data = request()->validate([
@@ -46,6 +56,11 @@ class AsignaturaController extends Controller
         }
     }
 
+    /**
+     * Muestra la asignatura con el listado de presentaciones que tenga asociadas
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function show(Asignatura $asignatura)
     {
         $this->authorize('view', $asignatura);

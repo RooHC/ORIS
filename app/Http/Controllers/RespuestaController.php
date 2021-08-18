@@ -18,6 +18,11 @@ class RespuestaController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Almacena una respuesta en base de datos
+     *
+     * @return Respuesta
+     */
     public function store()
     {
         $data = request()->input();
@@ -56,6 +61,11 @@ class RespuestaController extends Controller
         return redirect('/presentacion/' . $data['presentacion_id'] . '#evaluacion');
     }
 
+    /**
+     * Permite al profesor ocultar una opinion de un alumno.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function update(Opinion $opinion)
     {
         if ($opinion->visible) {

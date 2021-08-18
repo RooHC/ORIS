@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
+    /**
+     * Se encarga de enviar un email al administrador cuando alguien quiere permisos de profesor.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function sendMailRegistro($name, $email, $id)
     {
         $to = [['name' => 'ADMINISTRADOR', 'email' => 'roherca@usal.es']];
@@ -22,6 +27,11 @@ class MailController extends Controller
         }
     }
 
+    /**
+     * Se encarga de enviar un email de confirmacion de permisos al usuario que lo haya solicitado.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function sendMailConfirmacion($name, $email)
     {
         $to = [['name' => $name, 'email' => $email]];
@@ -33,6 +43,11 @@ class MailController extends Controller
         }
     }
 
+    /**
+     * Se encarga de enviar un email de fallo en la concesion de permisos al usuario que lo haya solicitado.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function sendMailFail($name, $email)
     {
         $to = [['name' => $name, 'email' => $email]];
@@ -44,6 +59,11 @@ class MailController extends Controller
         }
     }
 
+    /**
+     * Se encarga de enviar un email al administrador cuando un usuario rellena el formulario de contacto.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function contact(Request $request)
     {
         $this->validate($request, [
