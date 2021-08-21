@@ -59,11 +59,11 @@
                 <div class="row pt-4">
                     <div class="col-6">
                         <a href={{ url('/'.Auth::user()->role->name.'/'.Auth::user()->id) }}>
-                            <button class="btn btn-oris" type="button">Cancelar</button>
+                            <button class="btn btn-primary" type="button">Cancelar</button>
                         </a>
                     </div>
                     <div class="col-6">
-                        <button class="btn btn-oris float-right" type="submit">Siguiente</button>
+                        <button class="btn btn-primary float-right" type="submit">Siguiente</button>
                     </div>
                 </div>
 

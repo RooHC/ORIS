@@ -15,9 +15,8 @@
 <section>
     <div class="container text-center">
         <h4 class="text-center font-weight-bold text-uppercase">{{$asignatura->subject_name}}</h4>
-        <h5 class="text-center font-weight-bold">Código: {{$asignatura->subject_id}}</h5>
+        <h5 class="text-center font-weight-bold text-secondary">Código: {{$asignatura->subject_id}}</h5>
         <a class="btn btn-primary m-3" href={{ url('/profesor/' . Auth::user()->id) }} role="button">Volver</a>
-        <h5 class="text-center font-weight-bold">ALUMNOS:</h5>
         <div id="accordion">
             @foreach ($asignatura->suscriptores as $suscriptor)
             <div class="card">

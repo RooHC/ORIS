@@ -35,6 +35,6 @@ class Asignatura extends Model
      */
     public function suscriptores()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->orderBy('name');
     }
 }

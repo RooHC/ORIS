@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- MENSAJES DE SUGERENCIA --}}
+@can('viewDetail', $pregunta->presentacion)
 <div class="container">
     <div id="sugerencias" class="row px-3 pt-4 mx-auto my-0">
         <div class="card shadow  w-100">
@@ -90,6 +90,6 @@
         </div>
     </div>
 </div>
-{{-- FIN MENSAJES DE SUGERENCIA --}}
+@endcan
 
 @endsection

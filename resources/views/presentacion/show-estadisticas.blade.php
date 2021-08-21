@@ -356,9 +356,9 @@
                         @csrf
                         <button type="submit" class="btn btn-info">
                             @if($opinion->visible)
-                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fa fa-eye" aria-hidden="true" title="Ocultar opinión"></i>
                             @else
-                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            <i class="fa fa-eye-slash" aria-hidden="true" title="Mostrar opinión"></i>
                             @endif
                         </button>
                     </form>

@@ -26,40 +26,6 @@
     </div>
     <div class="row text-center">
         <div class="col-sm">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entrarReunion">
-                ENTRAR A UNA <br> REUNIÓN
-            </button>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="entrarReunion" tabindex="-1" role="dialog" aria-labelledby="entrarReunionLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="entrarReunionLabel">Entrar a una reunión</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('presentacion.search') }}" method="GET">
-                            @csrf
-                            <div class="form-group w-75 mx-auto">
-                                <input id="inputIDSala" type="text" class="form-control form-control-lg text-center"
-                                    name="inputIDSala" placeholder="ID de la reunión" required>
-                            </div>
-                            <button type="submit" class="btn btn-oris btn-lg">Entrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <a href="{{ url('/presentacion/create') }}">
-                <button class="btn btn-primary">SUBIR <br> PRESENTACIÓN</button>
-            </a>
-        </div>
-        <div class="col-sm">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subAsignatura">
                 SUSCRIBIRSE A <br> UNA ASIGNATURA
             </button>
@@ -83,6 +49,42 @@
                                     name="inputIDAsig" placeholder="Código de la asignatura" required>
                             </div>
                             <button type="submit" class="btn btn-oris btn-lg">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <a href="{{ url('/presentacion/create') }}">
+                <button class="btn btn-primary">SUBIR <br> PRESENTACIÓN</button>
+            </a>
+        </div>
+
+        <div class="col-sm">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#entrarReunion">
+                ENTRAR A UNA <br> REUNIÓN
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="entrarReunion" tabindex="-1" role="dialog" aria-labelledby="entrarReunionLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="entrarReunionLabel">Entrar a una reunión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('presentacion.search') }}" method="GET">
+                            @csrf
+                            <div class="form-group w-75 mx-auto">
+                                <input id="inputIDSala" type="text" class="form-control form-control-lg text-center"
+                                    name="inputIDSala" placeholder="ID de la reunión" required>
+                            </div>
+                            <button type="submit" class="btn btn-oris btn-lg">Entrar</button>
                         </form>
                     </div>
                 </div>

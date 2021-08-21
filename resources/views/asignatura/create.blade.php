@@ -56,7 +56,7 @@
                         </a>
                     </div>
                     <div class="col-6">
-                        <button class="btn btn-primary float-right" type="submit">Siguiente</button>
+                        <button class="btn btn-primary float-right" type="submit">Crear</button>
                     </div>
                 </div>
 

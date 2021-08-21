@@ -115,9 +115,9 @@
 
                 <div class="row">
                     <div class="w-100">
-                        <a class="btn btn-oris float-left" href="{{ url('/pregunta/delete/' . $pregunta->id) }}"
+                        <a class="btn btn-primary float-left" href="{{ url('/pregunta/delete/' . $pregunta->id) }}"
                             role="button">Eliminar pregunta</a>
-                        <button class="btn btn-oris float-right" type="submit">Actualizar</button>
+                        <button class="btn btn-primary float-right" type="submit">Actualizar</button>
                     </div>
                 </div>
 
@@ -128,10 +128,10 @@
     <div class="row">
         <div class="col-8 offset-2 text-center">
             <br>
-            <a class="btn btn-oris" href="{{ url('/pregunta/create/' . $presentacion->id) }}" role="button">Añadir
+            <a class="btn btn-primary" href="{{ url('/pregunta/create/' . $presentacion->id) }}" role="button">Añadir
                 pregunta</a>
             <hr>
-            <button class="btn btn-oris" type="button" data-toggle="modal" data-target="#finalizar">Finalizar</button>
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#finalizar">Finalizar</button>
             <div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -147,7 +147,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <a href={{ url('/'.Auth::user()->role->name.'/'.Auth::user()->id) }}>
-                                <button type="button" class="btn btn-oris">Finalizar</button>
+                                <button type="button" class="btn btn-primary">Finalizar</button>
                             </a>
                         </div>
                     </div>
