@@ -4,7 +4,7 @@
 
 <div class="container mt-5">
     <div class="row offset-2">
-        <h1>Editar questionario</h1>
+        <h1>Editar cuestionario</h1>
     </div>
 
     @if(session()->has('success'))
