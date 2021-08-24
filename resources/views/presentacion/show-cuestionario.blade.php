@@ -211,6 +211,7 @@
 
 {{-- MENSAJES DE SUGERENCIA --}}
 <div class="container">
+    @cannot('view', $pregunta)
     <div id="sugerencias" class="row px-3 pt-4 mx-auto my-0">
         <div class="card shadow  w-100">
             <div class="card-header py-3">
@@ -259,7 +260,6 @@
         </div>
     </div>
 
-    @cannot('view', $pregunta)
     <div class="text-center pt-4">
         <a href={{ url('/'.Auth::user()->role->name.'/'.Auth::user()->id) }}>
             <button type="button" class="btn btn-danger">SALIR</button>
